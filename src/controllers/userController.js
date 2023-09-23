@@ -1,10 +1,6 @@
 const transporter = require('../nodeMailer/mailer');
 const jwt = require('jsonwebtoken');
-const User = require('../models/userModel')
-
-
-
-
+const User = require('../models/userModel');
 //==========Register User======================
 
 const registerUser = async (req, res) => {
@@ -24,7 +20,12 @@ const registerUser = async (req, res) => {
     if (!password) {
       return res.status(400).send({ status: false, message: "Missing password fields" });
     }
-
+    
+     const value= await User.findOne({email});
+     if(value){
+      return res.status(312).send({status:false,message:"User already exist"});
+     }
+    
     const user = new User(data);
 
     // Generate a random token

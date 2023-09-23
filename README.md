@@ -66,3 +66,6 @@ Here are the available API endpoints:
 
    To set up the MongoDb database, 
 
+
+   //Deploy Link:    https://blogapp123-wupb.onrender.com
+
